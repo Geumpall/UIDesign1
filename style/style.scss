@@ -12,36 +12,35 @@ h1{
     margin-left: 2rem;
     margin-top: 2rem;
     margin-bottom: 0.2rem;
+    text-align: center;
     font-size: 42px;
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 900;
     font-style: normal;
-    color: white;
-}
-
-body{
-    background-color: rgb(15, 95, 38);
+    color: rgb(35, 35, 35);
 }
 
 .desc{
     margin-left: 2rem;
     margin-bottom: 2rem;
+    text-align: center;
     font-family:"DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    color: white;
+    color: rgb(35, 35, 35);
     font-size: 24px;
 }
 
 ul{
     margin-left: 2rem;
+    text-align: center;
     font-family:"DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
-    color: white;
+    color: rgb(35, 35, 35);
     font-size: 18px;
     line-height: 2.1rem;
 
@@ -51,25 +50,30 @@ H2{
     margin-left: 2rem;
     margin-top: 7rem;
     margin-bottom: 2rem;
+    text-align: center;
     font-family:"DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
-    color: white;
+    color: rgb(35, 35, 35);
     font-size: 21px;
 }
 
-a{
+.asciibutton{
+    align-content: center;
+    text-align: center;
     margin-left: 2rem;
 }
 
-.right-half{
-    display: flex;
-    width: 50%;
-    height: 100vh;
-    background-color: antiquewhite;
-    flex-direction: row-reverse;
-    img{
-        width: auto;
-    }
+.stilllifebutton{
+    align-content: center;
+    text-align: center;
+    margin-left: 2rem;
 }
+
+img{
+    margin: auto;
+    display: block;
+    align-content: center;
+    height: 30vh;
+    }
