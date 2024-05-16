@@ -59,4 +59,15 @@ H2 {
 
 a {
   margin-left: 2rem;
+}
+
+.right-half {
+  display: flex;
+  width: 50%;
+  height: 100vh;
+  background-color: antiquewhite;
+  flex-direction: row-reverse;
+}
+.right-half img {
+  width: auto;
 }/*# sourceMappingURL=style.css.map */
