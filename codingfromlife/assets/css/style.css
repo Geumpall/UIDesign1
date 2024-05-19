@@ -31,6 +31,7 @@ body {
 
 .wine1_inside {
   position: absolute;
+  z-index: 3;
   top: 0px;
   left: 30px;
   right: 30px;
@@ -50,6 +51,7 @@ body {
   position: absolute;
   left: 110px;
   bottom: 30px;
+  z-index: 3;
 }
 
 .wine2_inside {
@@ -165,11 +167,153 @@ body {
 #apple {
   width: 100px;
   height: 100px;
-  background: radial-gradient(rgb(255, 255, 39) 10%, rgb(255, 203, 253) 50%);
+  background: radial-gradient(rgb(255, 203, 253) 10%, rgb(255, 255, 39) 50%);
   position: absolute;
   border-radius: 50%;
   left: 200px;
   bottom: 60px;
+}
+
+#apple2 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(rgb(255, 203, 253) 10%, rgb(255, 255, 39) 50%);
+  position: absolute;
+  border-radius: 50%;
+  right: 46px;
+  bottom: 30px;
+}
+
+#melon {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(rgb(255, 255, 39) 10%, rgb(255, 203, 253) 50%);
+  position: absolute;
+  border-radius: 50%;
+  left: 250px;
+  bottom: 60px;
+}
+
+#leaves {
+  display: flex;
+  flex-direction: row;
+}
+
+.leaves1 {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  left: 200px;
+  bottom: 300px;
+}
+
+.leaf1 {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 86, 34);
+  position: relative;
+  margin-left: 20px;
+  margin-top: 90px;
+  border-radius: 50%;
+}
+
+.leaf2 {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 86, 34);
+  position: relative;
+  margin-left: 70px;
+  margin-top: 14px;
+  border-radius: 50%;
+}
+
+.leaf3 {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 86, 34);
+  position: relative;
+  margin-left: 20px;
+  margin-top: 1px;
+  border-radius: 50%;
+}
+
+.leaves2 {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  left: 300px;
+  bottom: 300px;
+}
+
+.leaf4 {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 86, 34);
+  position: relative;
+  margin-left: 20px;
+  margin-top: 47px;
+  border-radius: 50%;
+}
+
+.leaf5 {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 86, 34);
+  position: relative;
+  margin-left: 80px;
+  margin-top: 5px;
+  border-radius: 50%;
+}
+
+.leaf6 {
+  width: 16px;
+  height: 16px;
+  background-color: rgb(255, 86, 34);
+  position: relative;
+  margin-left: 50px;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+
+.leaves3 {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  left: 400px;
+  bottom: 300px;
+}
+
+.leaf7 {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 86, 34);
+  position: relative;
+  margin-left: 20px;
+  margin-top: 58px;
+  border-radius: 50%;
+}
+
+.leaf8 {
+  width: 16px;
+  height: 16px;
+  background-color: rgb(255, 86, 34);
+  position: relative;
+  margin-left: 80px;
+  margin-top: 5px;
+  border-radius: 50%;
+}
+
+.branch {
+  z-index: 1;
+  position: relative;
+  width: auto;
+  height: auto;
 }
 
 /* uncomment for css transitions */
