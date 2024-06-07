@@ -9,9 +9,9 @@
     }
 
 h1{
-    margin-left: 2rem;
+    //margin-left: 2rem;
     margin-top: 2rem;
-    margin-bottom: 0.2rem;
+    //margin-bottom: 0.2rem;
     text-align: center;
     font-size: 42px;
     font-family: "DM Sans", sans-serif;
@@ -22,7 +22,7 @@ h1{
 }
 
 .desc{
-    margin-left: 2rem;
+    //margin-left: 2rem;
     margin-bottom: 2rem;
     text-align: center;
     font-family:"DM Sans", sans-serif;
@@ -34,7 +34,7 @@ h1{
 }
 
 ul{
-    margin-left: 2rem;
+    margin: 0rem 2rem;
     text-align: center;
     font-family:"DM Sans", sans-serif;
     font-optical-sizing: auto;
@@ -47,7 +47,7 @@ ul{
 }
 
 H2{
-    margin-left: 2rem;
+    //margin-left: 2rem;
     margin-top: 7rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -59,16 +59,10 @@ H2{
     font-size: 21px;
 }
 
-.asciibutton{
-    align-content: center;
+.button{
     text-align: center;
-    margin-left: 2rem;
-}
+    text-decoration: none;
 
-.stilllifebutton{
-    align-content: center;
-    text-align: center;
-    margin-left: 2rem;
 }
 
 img{
@@ -77,3 +71,33 @@ img{
     align-content: center;
     height: 30vh;
     }
+
+body.dark {
+        background: #333;
+      }
+
+h1.dark{
+    color: white;
+}
+
+H2.dark{
+    color: white;
+}
+
+ul.dark{
+    color: white;
+}
+
+p.dark{
+    color: white;
+}
+
+
+      @media only screen and (max-width: 600px) {
+        h1{font-size: 1.8rem;}
+        ul{font-size:1.3rem;
+        line-height: 2.8rem;}
+        img{height: 20vh;
+            margin-top: 3rem;
+        }
+      }

@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+#wholeContainer {
+  display: flex;
+  width: 100%;
+}
+
+.leftBox {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: calc(100% - 44rem);
+  overflow-y: auto;
+}
+
+.rightBox {
+  position: fixed;
+  right: 0rem;
+  top: 0rem;
+  bottom: 0rem;
+  width: 40rem;
+  background: linear-gradient(90deg, var(--color, black) 0%, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0) 100%);
+  overflow-y: auto;
+  padding-top: 2rem;
+  padding-left: 6rem;
+  padding-right: 2.3rem;
+}
+
+.header {
+  display: flex;
+  padding-left: 2rem;
+  padding-top: 2.6rem;
+  padding-bottom: 2.9rem;
+  width: calc(100% - 44rem);
+  position: fixed;
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 1;
+}
+
+.logo-holder {
+  width: 12rem;
+  height: 9rem;
+  margin-right: 2rem;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.menu {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.categoryButton {
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 1.9rem;
+  padding: 0.3rem 1.1rem;
+  margin-right: 1rem;
+  background-color: rgb(206, 206, 206);
+  cursor: pointer;
+  font-family: "agahnsangsoo2012", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.category1 {
+  background-color: red;
+}
+
+.category2 {
+  background-color: blue;
+}
+
+.category3 {
+  background-color: green;
+}
+
+.category4 {
+  background-color: orange;
+}
+
+#searchInput {
+  display: block;
+  width: calc(100% - 50rem); /* Adjust width as necessary */
+  height: 3rem;
+  padding: 0.5rem; /* Adjust padding as necessary */
+  font-size: 1.2rem; /* Adjust font size as necessary */
+  border: 1px solid #ccc; /* Border styling */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.dropfragment {
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 1.9rem;
+  padding: 0.3rem 0rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-family: "agahnsangsoo2012", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  word-break: keep-all;
+  margin-right: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.fragments {
+  margin-top: 15rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 6rem;
+}
+
+.word {
+  position: relative;
+  margin-left: 1.9rem;
+  margin-right: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--color, black); /* Default color */
+  cursor: pointer;
+  font-family: "agahnsangsoo2012", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.word::before,
+.word::after,
+.word .dot-bottom-left,
+.word .dot-bottom-right {
+  content: "";
+  position: absolute;
+  width: 12px; /* Size of the square dots */
+  height: 12px; /* Size of the square dots */
+  background-color: var(--color, black); /* Match the dot color to the text color */
+}
+
+.word::before {
+  top: -4px;
+  left: -4px;
+}
+
+.word::after {
+  top: -4px;
+  right: -4px;
+}
+
+.word .dot-bottom-left {
+  bottom: -4px;
+  left: -4px;
+}
+
+.word .dot-bottom-right {
+  bottom: -4px;
+  right: -4px;
+}
+
+.word:hover::before,
+.word:hover::after,
+.word:hover .dot-bottom-left,
+.word:hover .dot-bottom-right {
+  width: 19px; /* New size of the square dots on hover */
+  height: 19px; /* New size of the square dots on hover */
+}
+
+.bookText {
+  font-size: 1.43rem;
+  line-height: 3rem;
+  word-break: keep-all;
+  font-family: "agchoijeongho-screen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.authorText {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  word-break: keep-all;
+  font-family: "agahnsangsoo2012", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 0.2rem; /* Add space between each paragraph */
+}
+
+.titleText {
+  font-size: 1.7rem;
+  line-height: 1.8rem;
+  word-break: keep-all;
+  font-family: "agahnsangsoo2012", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 0.1rem; /* Add space between each paragraph */
+}
+
+.publisherText {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  word-break: keep-all;
+  font-family: "agahnsangsoo2012", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 1rem; /* Add space between each paragraph */
+}/*# sourceMappingURL=style.css.map */
