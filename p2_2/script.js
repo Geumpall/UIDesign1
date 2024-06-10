@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Get the word elements
     const words = Array.from(document.querySelectorAll('.word'));
+    const overlay = document.querySelector('#overlay');
+    const rightBox = document.querySelector('.rightBox');
 
     // Function to shuffle words
     const shuffleWords = () => {
@@ -51,9 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Set the background gradient of rightBox to the gradient of the selected word's category
                 document.querySelector('.rightBox').style.background = `linear-gradient(90deg, ${categoryColor} 0%, rgba(255,255,255,0) 10%, rgba(255,255,255,0) 100%)`;
-            });
+            // Show rightBox for small screens
+            if (window.innerWidth < 1247) {
+                rightBox.classList.add('active');
+                overlay.classList.add('active');
+            }
         });
-    };
+    });
+};
 
     // Initial shuffle and display all words
     shuffleWords();
@@ -88,6 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 word.style.display = 'none'; // Hide the word if it doesn't match the search term
             }
         });
+    });
+    
+    overlay.addEventListener('click', () => {
+        rightBox.classList.remove('active');
+        overlay.classList.remove('active');
     });
 });
 

@@ -21,19 +21,20 @@
 
         <div class="leftBox">
 
+            <div id="logo-holder-mobile">
+                <img src="/p2_2/p2_assets/logo.svg"/>
+            </div>
+
             <div class="header">
-                <div class="logo-holder">
-                    <img src="/p2_2/p2_assets/logo.svg"/>
-                </div>
                 <div class="menu">
                     <div class="categoryButton category1">문학</div>
                     <div class="categoryButton category2">과학</div>
                     <div class="categoryButton category3">인문</div>
                     <div class="categoryButton category4">수필,에세이</div>
                     <div class="categoryButton">전체</div>
+                    <input type="text" id="searchInput" placeholder="검색어" />
                 </div>
-                <input type="text" id="searchInput" placeholder="검색어" />
-                <a href="https://forms.gle/ZECNerBKB8rajcaEA" class="dropfragment">책조각 놓고 가기</a>
+                <a href="https://forms.gle/ZECNerBKB8rajcaEA" class="dropfragment">책조각<br>놓고 가기</a>
             </div>
 
             <div class="fragments">
@@ -305,11 +306,24 @@
 
 
         <div class="rightBox">
+            <div class="wrapper">
             <p class="bookText" id="rightBox"></p>
-            <p class="authorText" id="authorText"></p>
-            <p class="titleText" id="titleText"></p>
-            <p class="publisherText" id="publisherText"></p>
+            </div>
+
+            <div id="footer">
+                <div id="bookInfo">
+                    <p class="authorText" id="authorText"></p>
+                    <p class="titleText" id="titleText"></p>
+                    <p class="publisherText" id="publisherText"></p>
+                </div>
+
+                <div id="logo-holder">
+                    <img src="/p2_2/p2_assets/logo.svg"/>
+                </div>
+            </div>
         </div>
+
+        <div class="overlay" id="overlay"></div>
 
 
     </div>
