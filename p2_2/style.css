@@ -9,50 +9,68 @@
 }
 
 .leftBox {
-  width: calc(100% - 40rem);
+  width: calc(100% - 40rem); /* 오른쪽 박스와의 차이 반영 */
   height: -moz-fit-content;
   height: fit-content;
+  flex: 1;
 }
 
 .rightBox {
   position: fixed;
-  right: 0rem;
-  top: 0rem;
-  bottom: 0rem;
+  right: 0;
+  top: 0;
+  bottom: 0;
   width: 40rem;
   background: linear-gradient(90deg, var(--color, black) 0%, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0) 100%);
   overflow-y: auto;
-  padding-top: 2rem;
-  padding-left: 6rem;
-  padding-right: 2.3rem;
-  z-index: 2;
+  padding: 2rem 2.3rem 0 6rem;
+  z-index: 1001;
 }
 
 #logo-holder-mobile {
-  height: auto;
-  margin: auto;
-  width: 90vw;
+  display: block;
+  margin: 4rem auto 0;
+  height: 21rem;
+  width: auto;
   position: relative;
-  justify-content: center;
-  top: 2rem;
+  z-index: 80;
 }
 
 .header {
   display: flex;
-  margin: auto;
-  width: 100vw;
-  padding-top: 2.6rem;
-  padding-bottom: 2.9rem;
-  top: 0;
-  min-width: calc(100% - 44rem);
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.6rem 40px;
+  width: 100%;
   position: fixed;
+  top: 0;
   background: linear-gradient(180deg, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0) 100%);
-  z-index: 1;
+  z-index: 2;
+}
+
+.header_mobile {
+  display: flex;
+  bottom: 0;
+  padding: 2.6rem 40px 2.9rem;
+  width: 100vw;
+  position: fixed !important;
+  background: linear-gradient(360deg, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0) 100%);
+  z-index: 100;
 }
 
 .menu {
-  width: 30rem;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+  width: auto;
+}
+
+.menu_mobile {
+  min-width: 36rem;
+  display: flex;
+  margin: auto;
+  justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
 }
@@ -63,17 +81,15 @@
   color: white;
   font-size: 1.9rem;
   padding: 1rem 1.1rem;
-  margin-right: 0.3rem;
-  margin-left: 0.3rem;
+  margin: 0 0.3rem;
   background-color: rgb(206, 206, 206);
   cursor: pointer;
   font-family: "agahnsangsoo2012", sans-serif;
   font-weight: 500;
-  font-style: normal;
 }
 
 .categoryButton:first-child {
-  margin-left: 0rem;
+  margin-left: 0;
 }
 
 .category1 {
@@ -94,66 +110,53 @@
 
 #searchInput {
   display: block;
-  width: 29.1rem; /* Adjust width as necessary */
+  width: calc(100% - 20rem);
   height: 3rem;
-  padding: 0.5rem; /* Adjust padding as necessary */
-  margin-left: 0;
-  margin-top: 0.6rem;
-  font-size: 1.2rem; /* Adjust font size as necessary */
-  border: 1px solid #ccc; /* Border styling */
-  border-radius: 0px; /* Rounded corners */
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
 }
 
 .dropfragment {
-  right: 0;
-  position: fixed;
   font-size: 1.9rem;
   min-width: 127px;
   height: 8.1rem;
   padding: 1.3rem;
-  margin-left: 2rem;
   border: 2px solid black;
   background-color: white;
   text-align: center;
   cursor: pointer;
   font-family: "agahnsangsoo2012", sans-serif;
   font-weight: 500;
-  font-style: normal;
   word-break: keep-all;
   text-decoration: none;
   color: black;
+  margin-left: auto;
 }
 
 .fragments {
-  margin-right: 2rem;
-  margin-top: 15rem;
+  margin: 15rem 0.7rem 0;
   display: flex;
   flex-wrap: wrap;
   font-size: 6rem;
-  word-break: keep-all;
+  z-index: 1;
+  flex: 1;
 }
 
 .word {
-  position: relative;
-  margin-left: 1.9rem;
-  margin-right: 1.2rem;
-  margin-bottom: 1rem;
-  color: var(--color, black); /* Default color */
+  margin: 0 1.2rem 1rem 1.9rem;
+  color: var(--color, black);
   cursor: pointer;
   font-family: "agahnsangsoo2012", sans-serif;
   font-weight: 500;
-  font-style: normal;
 }
 
-.word::before,
-.word::after,
-.word .dot-bottom-left,
-.word .dot-bottom-right {
+.word::before, .word::after, .word .dot-bottom-left, .word .dot-bottom-right {
   content: "";
   position: absolute;
-  width: 12px; /* Size of the square dots */
-  height: 12px; /* Size of the square dots */
-  background-color: var(--color, black); /* Match the dot color to the text color */
+  width: 12px;
+  height: 12px;
+  background-color: var(--color, black);
 }
 
 .word::before {
@@ -176,12 +179,9 @@
   right: -4px;
 }
 
-.word:hover::before,
-.word:hover::after,
-.word:hover .dot-bottom-left,
-.word:hover .dot-bottom-right {
-  width: 19px; /* New size of the square dots on hover */
-  height: 19px; /* New size of the square dots on hover */
+.word:hover::before, .word:hover::after, .word:hover .dot-bottom-left, .word:hover .dot-bottom-right {
+  width: 19px;
+  height: 19px;
 }
 
 .wrapper {
@@ -191,73 +191,59 @@
 }
 
 #footer {
+  margin-top: 2rem;
   display: flex;
   height: 193px;
   position: relative;
   transform: translateY(-100%);
+  justify-content: space-between;
 }
 
 #bookInfo {
   width: 22rem;
   position: relative;
   margin-right: 2rem;
-  margin-bottom: 2rem;
 }
 
-#logo-holder {
+.logo-holder {
   position: relative;
   width: 10rem;
   margin-bottom: 2rem;
-  margin-right: 2rem;
-}
-
-img {
-  margin-top: 2rem;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  margin-right: 0;
+  right: 0;
 }
 
 .bookText {
   font-size: 1.43rem;
   line-height: 3rem;
-  word-break: keep-all;
   font-family: "agchoijeongho-screen", sans-serif;
   font-weight: 400;
-  font-style: normal;
 }
 
 .authorText {
-  margin-top: 2rem;
   font-size: 1.4rem;
-  word-break: keep-all;
+  margin-bottom: 0.2rem;
   font-family: "agahnsangsoo2012", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  margin-bottom: 0.2rem; /* Add space between each paragraph */
+  font-weight: 400;
 }
 
 .titleText {
   font-size: 1.7rem;
   line-height: 1.8rem;
-  word-break: keep-all;
+  margin-bottom: 0.1rem;
   font-family: "agahnsangsoo2012", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  margin-bottom: 0.1rem; /* Add space between each paragraph */
+  font-weight: 400;
 }
 
 .publisherText {
   font-size: 1rem;
   line-height: 1.2rem;
-  word-break: keep-all;
+  margin-bottom: 1rem;
   font-family: "agahnsangsoo2012", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  margin-bottom: 1rem; /* Add space between each paragraph */
+  font-weight: 400;
 }
 
-@media only screen and (min-width: 681px) {
+@media only screen and (min-width: 640px) {
   #logo-holder-mobile {
     display: none;
   }
@@ -266,114 +252,132 @@ img {
   .fragments {
     font-size: 4.9rem;
   }
-  .word:hover::before,
-  .word:hover::after,
-  .word:hover .dot-bottom-left,
-  .word:hover .dot-bottom-right {
-    width: 16px; /* New size of the square dots on hover */
-    height: 16px; /* New size of the square dots on hover */
-  }
   .rightBox {
     width: 36rem;
   }
+  .word:hover::before, .word:hover::after, .word:hover .dot-bottom-left, .word:hover .dot-bottom-right {
+    width: 16px;
+    height: 16px;
+  }
 }
 @media only screen and (max-width: 1247px) {
-  .header {
-    padding-left: 1.6rem;
-    min-width: 45rem;
-    top: 0;
-    left: 0;
-  }
   .rightBox {
     display: none;
     width: auto;
     height: 70%;
     max-height: 80%;
-    top: 23%;
-    left: 10%;
-    right: 10%;
+    top: 20%;
+    left: 20%;
+    right: 20%;
     bottom: auto;
-    padding: 1rem;
+    padding: 2rem;
+    background-color: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* 가장 위에 보이도록 설정 */
-    overflow-y: auto; /* 내용이 많을 때 스크롤 가능하게 */
+    z-index: 1000;
+    overflow-y: auto;
   }
   .rightBox.active {
     display: block;
     position: fixed;
-    padding: 2rem;
+    padding: 4rem 4rem 4rem 2rem;
   }
   .overlay {
-    display: none; /* 기본적으로 숨기기 */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 999; /* rightBox 바로 아래에 위치 */
+    z-index: 999;
   }
   .overlay.active {
-    display: block; /* 활성화 시 보이기 */
+    display: block;
   }
   .bookText {
-    font-size: 2.1rem;
-    line-height: 3.6rem;
+    font-size: 1.2rem;
+    line-height: 2.3rem;
+  }
+  #footer {
+    height: 121px;
   }
   .leftBox {
     width: 100vw;
   }
   .fragments {
-    font-size: 6rem;
-  }
-  .word:hover::before,
-  .word:hover::after,
-  .word:hover .dot-bottom-left,
-  .word:hover .dot-bottom-right {
-    width: 18px; /* New size of the square dots on hover */
-    height: 18px; /* New size of the square dots on hover */
+    font-size: 4rem;
   }
   .header {
     width: 100vw;
-    margin-right: 2rem;
-    top: 0;
-    position: fixed;
-  }
-  .dropfragment {
-    right: 6rem;
   }
 }
-@media only screen and (max-width: 680px) {
-  .header {
-    margin-top: 2rem;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    width: 100vw;
+@media only screen and (max-width: 640px) {
+  .rightBox {
+    display: none;
+    width: auto;
+    height: 60%;
+    max-height: 80%;
+    top: 10%;
+    left: 14%;
+    right: 14%;
+    bottom: auto;
+    padding: 2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
   }
-  .menu {
-    display: relative;
-    width: 28rem;
+  .rightBox.active {
+    display: block;
+    position: fixed;
+    padding: 4rem 4rem 4rem 2rem;
+  }
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+  }
+  .overlay.active {
+    display: block;
+  }
+  .header {
+    display: none;
+  }
+  .categoryButton {
+    font-size: 2rem;
+  }
+  .categoryButton:nth-child(5) {
+    margin-right: 0;
+  }
+  #searchInput {
+    min-width: 30rem;
+  }
+  #wholeContainer {
+    overflow: visible;
+    width: auto;
   }
   .leftBox {
     width: 100vw;
   }
-  .rightBox {
-    height: 60vh;
-  }
   .bookText {
     font-size: 1.4rem;
-    line-height: 2.2rem;
+    line-height: 2.6rem;
   }
   .dropfragment {
     display: none;
   }
   #searchInput {
-    width: 24px;
+    width: 60px;
+    height: 76px;
+    margin: 1rem;
   }
   .fragments {
-    font-size: 3rem;
+    font-size: 6rem;
+    width: 100vw;
   }
   .word {
-    margin-right: 0;
+    margin-right: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -19,11 +19,20 @@
 <body>
     <div id="wholeContainer">
 
+        <div class="header_mobile">
+            <div class="menu_mobile">
+                <div class="categoryButton category1">문학</div>
+                <div class="categoryButton category2">과학</div>
+                <div class="categoryButton category3">인문</div>
+                <div class="categoryButton category4">수필,에세이</div>
+                <div class="categoryButton">전체</div>
+                <input type="text" id="searchInput" placeholder="검색어" />
+            </div>
+        </div>
+
         <div class="leftBox">
 
-            <div id="logo-holder-mobile">
-                <img src="/p2_2/p2_assets/logo.svg"/>
-            </div>
+            <img id="logo-holder-mobile" src="/p2_2/p2_assets/logo.svg"/>
 
             <div class="header">
                 <div class="menu">
@@ -317,15 +326,12 @@
                     <p class="publisherText" id="publisherText"></p>
                 </div>
 
-                <div id="logo-holder">
-                    <img src="/p2_2/p2_assets/logo.svg"/>
+                <div>
+                    <img class="logo-holder" src="/p2_2/p2_assets/logo.svg"/>
                 </div>
             </div>
         </div>
-
         <div class="overlay" id="overlay"></div>
-
-
     </div>
     <script src="script.js"></script>
 </body>
