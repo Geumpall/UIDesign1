@@ -439,8 +439,8 @@ html, body {
     height: 60%;
     max-height: 80%;
     top: 10%;
-    left: 12%;
-    right: 12%;
+    left: 8%;
+    right: 8%;
     bottom: auto;
     padding: 0rem;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -460,11 +460,11 @@ html, body {
     line-height: 2.2rem;
   }
   #searchInput {
-    min-width: 17rem;
+    min-width: 23.7rem;
     height: 3rem;
     padding: 0;
     font-size: 1.2rem;
     border: 1px solid #ccc;
-    margin: 0;
+    margin-top: 2px;
   }
 }/*# sourceMappingURL=style.css.map */
