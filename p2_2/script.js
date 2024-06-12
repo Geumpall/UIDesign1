@@ -80,20 +80,63 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
 
-    // 검색 입력에 이벤트 리스너 추가
-    const searchInput = document.querySelector('#searchInput');
-    searchInput.addEventListener('input', () => {
-        const searchTerm = searchInput.value.toLowerCase();
-        words.forEach(word => {
-            const text = word.getAttribute('data-text').toLowerCase();
-            if (text.includes(searchTerm)) {
-                word.style.display = 'inline-block';
-            } else {
-                word.style.display = 'none';
-            }
-        });
+    // HTML 요소를 찾기
+const searchInputDesktop = document.querySelector('.header .menu #searchInput');
+const searchInputMobile = document.querySelector('.header_mobile .menu_mobile #searchInput');
+
+// 검색 이벤트 리스너 함수 정의
+function handleSearch(event) {
+    const query = event.target.value.toLowerCase();
+    const fragments = document.querySelectorAll('.fragments .word');
+
+    fragments.forEach(fragment => {
+        const text = fragment.dataset.text.toLowerCase();
+        const author = fragment.dataset.author.toLowerCase();
+        const title = fragment.dataset.title.toLowerCase();
+        const publisher = fragment.dataset.publisher.toLowerCase();
+        
+        // 검색어와 일치하는 항목을 찾기
+        if (text.includes(query) || author.includes(query) || title.includes(query) || publisher.includes(query)) {
+            fragment.style.display = 'block'; // 일치하면 보이기
+        } else {
+            fragment.style.display = 'none'; // 일치하지 않으면 숨기기
+        }
     });
+}
+
+// 두 검색 필드에 이벤트 리스너 추가
+if (searchInputDesktop) {
+    searchInputDesktop.addEventListener('input', handleSearch);
+}
+if (searchInputMobile) {
+    searchInputMobile.addEventListener('input', handleSearch);
+}
+
+// 반응형으로 이벤트 리스너를 조정하는 함수
+function adjustEventListeners() {
+    if (window.innerWidth <= 600) {
+        // 모바일 뷰에서 동작
+        if (searchInputMobile) {
+            searchInputMobile.addEventListener('input', handleSearch);
+        }
+    } else {
+        // 데스크탑 뷰에서 동작
+        if (searchInputDesktop) {
+            searchInputDesktop.addEventListener('input', handleSearch);
+        }
+    }
+}
+
+// 초기 호출
+adjustEventListeners();
+
+// 창 크기 변경 시 이벤트 리스너 조정
+window.addEventListener('resize', adjustEventListeners);
+
+
+
     
     // overlay 클릭 시 비활성화
     overlay.addEventListener('click', () => {
