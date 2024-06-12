@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const wordCategory = word.getAttribute('data-category');
             if (wordCategory in colorMapping) {
-                word.style.setProperty('--color', colorMapping[wordCategory]);
+                // word.style.setProperty('--color', colorMapping[wordCategory]);
             }
 
             word.addEventListener('click', () => {
