@@ -87,8 +87,9 @@ html, body {
     margin: 0 0.3rem;
     background-color: rgb(206, 206, 206);
     cursor: pointer;
-    font-family: "agahnsangsoo2012", sans-serif;
+    font-family: agahnsangsoo2012, sans-serif;
     font-weight: 500;
+    font-style: normal;
 }
 
 .categoryButton:first-child {
@@ -119,8 +120,9 @@ html, body {
     background-color: white;
     text-align: center;
     cursor: pointer;
-    font-family: "agahnsangsoo2012", sans-serif;
+    font-family: agahnsangsoo2012, sans-serif;
     font-weight: 500;
+    font-style: normal;
     word-break: keep-all;
     text-decoration: none;
     color: black;
@@ -140,8 +142,9 @@ html, body {
     margin: 0 1.2rem 1rem 1.9rem;
     color: var(--color, black);
     cursor: pointer;
-    font-family: "agahnsangsoo2012", sans-serif;
+    font-family: agahnsangsoo2012, sans-serif;
     font-weight: 500;
+    font-style: normal;
 }
 
 .word::before, .word::after, .word .dot-bottom-left, .word .dot-bottom-right {
@@ -194,31 +197,35 @@ html, body {
 .bookText {
     font-size: 1.43rem;
     line-height: 3rem;
-    font-family: "agchoijeongho-screen", sans-serif;
+    font-family: agchoijeongho-screen, sans-serif;
     font-weight: 400;
+    font-style: normal;
 }
 
 .authorText {
     font-size: 1.4rem;
     margin-bottom: 0.2rem;
-    font-family: "agahnsangsoo2012", sans-serif;
-    font-weight: 400;
+    font-family: agahnsangsoo2012, sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .titleText {
     font-size: 1.7rem;
     line-height: 1.8rem;
     margin-bottom: 0.1rem;
-    font-family: "agahnsangsoo2012", sans-serif;
-    font-weight: 400;
+    font-family: agahnsangsoo2012, sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .publisherText {
     font-size: 1rem;
     line-height: 1.2rem;
     margin-bottom: 1rem;
-    font-family: "agahnsangsoo2012", sans-serif;
-    font-weight: 400;
+    font-family: agahnsangsoo2012, sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 @media only screen and (min-width: 685px) {
