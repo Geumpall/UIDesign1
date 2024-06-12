@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     // HTML 요소를 찾기
-const searchInputDesktop = document.querySelector('.header .menu #searchInput');
-const searchInputMobile = document.querySelector('.header_mobile .menu_mobile #searchInput');
+const searchInputDesktop = document.querySelector('.header .menu #searchInputDesktop');
+const searchInputMobile = document.querySelector('.header_mobile .menu_mobile #searchInputMobile');
 
 // 검색 이벤트 리스너 함수 정의
 function handleSearch(event) {

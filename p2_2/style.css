@@ -392,7 +392,7 @@ html, body {
   .dropfragment {
     display: none;
   }
-  #searchInput {
+  #searchInputDesktop {
     width: 60px;
     height: 76px;
     margin: 1rem;
