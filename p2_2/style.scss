@@ -227,8 +227,8 @@ html, body {
 }
 
 .bookText {
-    font-size: 1.43rem;
-    line-height: 3rem;
+    font-size: 1.2rem;
+    line-height: 2.6rem;
     font-family: agchoijeongho-screen, sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -475,6 +475,12 @@ html, body {
         border-style: solid black;
         margin-top: 2px;
     }
+
+    .wrapper{
+        padding-bottom: 80px;
+    }
+
+    #footer{transform: translateY(-90%); height: 80px;}
 
     #bookInfo{
         margin: 0;
