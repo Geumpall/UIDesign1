@@ -204,32 +204,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const dropFragmentButton = document.querySelector('.dropfragment_mobile');
-    let touchStartTime = 0;
-    const longPressDuration = 1800; // 롱프레스 지속 시간 (1.8초)
+    const loadingMobile = document.getElementById('loadingMobile');
+    const wholeContainer = document.getElementById('wholeContainer');
+    const isMobile = window.innerWidth < 1247;
+
+    if (loadingMobile && wholeContainer) {
+        if (isMobile) {
+            setTimeout(() => {
+                loadingMobile.style.opacity = '0';
+                setTimeout(() => {
+                    loadingMobile.style.display = 'none';
+                    wholeContainer.style.display = 'block';
+                }, 1000);
+            }, 3000);
+        } else {
+            loadingMobile.style.display = 'none';
+            wholeContainer.style.display = 'block';
+        }
+    } else {
+        console.error('loadingMobile 또는 wholeContainer 요소가 존재하지 않습니다.');
+    }
 
     if (dropFragmentButton) {
-        // 터치 시작 이벤트
-        dropFragmentButton.addEventListener('touchstart', (e) => {
-            e.preventDefault(); // 기본 터치 이벤트 차단 (필요시)
-            touchStartTime = new Date().getTime(); // 터치 시작 시간 기록
+        dropFragmentButton.addEventListener('click', (e) => {
+            e.preventDefault(); // 기본 동작 막기
 
-            // 일정 시간 후 롱프레스 인식 및 링크 이동
+            // 버튼 크기 변경
+            dropFragmentButton.classList.add('grow');
+
+            // 0.5초 후에 링크로 이동
             setTimeout(() => {
-                const touchEndTime = new Date().getTime();
-                if (touchEndTime - touchStartTime >= longPressDuration) {
-                    window.location.href = dropFragmentButton.href; // 링크로 이동
-                }
-            }, longPressDuration);
-        });
-
-        // 터치 끝 이벤트
-        dropFragmentButton.addEventListener('touchend', () => {
-            touchStartTime = 0; // 터치 끝나면 시간 초기화
-        });
-
-        // 터치 이동 이벤트 (터치 이동 시 롱프레스 중단)
-        dropFragmentButton.addEventListener('touchmove', () => {
-            touchStartTime = 0; // 터치 이동 시 시간 초기화
+                window.location.href = dropFragmentButton.href;
+            }, 500); // 커지는 애니메이션 시간 (0.5초)와 일치
         });
     } else {
         console.error('dropfragment_mobile 요소가 존재하지 않습니다.');

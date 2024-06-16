@@ -179,8 +179,8 @@ html, body {
     transition: transform 0.2s ease-in-out; /* 크기 변경 애니메이션 */
 }
 
-.dropfragment_mobile:active {
-    transform: scale(1.2); /* 오래 터치할 때 크기 변경 */
+.dropfragment_mobile.grow {
+    transform: scale(1.2); /* 커지는 애니메이션 */
 }
 
 .fragments {
