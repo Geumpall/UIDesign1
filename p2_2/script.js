@@ -201,3 +201,37 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('loadingMobile 또는 wholeContainer 요소가 존재하지 않습니다.');
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dropFragmentButton = document.querySelector('.dropfragment_mobile');
+    let touchStartTime = 0;
+    const longPressDuration = 1800; // 롱프레스 지속 시간 (1.8초)
+
+    if (dropFragmentButton) {
+        // 터치 시작 이벤트
+        dropFragmentButton.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // 기본 터치 이벤트 차단 (필요시)
+            touchStartTime = new Date().getTime(); // 터치 시작 시간 기록
+
+            // 일정 시간 후 롱프레스 인식 및 링크 이동
+            setTimeout(() => {
+                const touchEndTime = new Date().getTime();
+                if (touchEndTime - touchStartTime >= longPressDuration) {
+                    window.location.href = dropFragmentButton.href; // 링크로 이동
+                }
+            }, longPressDuration);
+        });
+
+        // 터치 끝 이벤트
+        dropFragmentButton.addEventListener('touchend', () => {
+            touchStartTime = 0; // 터치 끝나면 시간 초기화
+        });
+
+        // 터치 이동 이벤트 (터치 이동 시 롱프레스 중단)
+        dropFragmentButton.addEventListener('touchmove', () => {
+            touchStartTime = 0; // 터치 이동 시 시간 초기화
+        });
+    } else {
+        console.error('dropfragment_mobile 요소가 존재하지 않습니다.');
+    }
+});
