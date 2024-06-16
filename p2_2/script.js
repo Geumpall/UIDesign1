@@ -208,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wholeContainer = document.getElementById('wholeContainer');
     const isMobile = window.innerWidth < 1247;
 
+    // 로딩 화면 관리
     if (loadingMobile && wholeContainer) {
         if (isMobile) {
             setTimeout(() => {
@@ -215,8 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     loadingMobile.style.display = 'none';
                     wholeContainer.style.display = 'block';
-                }, 1000);
-            }, 3000);
+                }, 1000); // 페이드 아웃 지속 시간
+            }, 3000); // 로딩 화면 표시 시간
         } else {
             loadingMobile.style.display = 'none';
             wholeContainer.style.display = 'block';
@@ -225,19 +226,37 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('loadingMobile 또는 wholeContainer 요소가 존재하지 않습니다.');
     }
 
-    if (dropFragmentButton) {
-        dropFragmentButton.addEventListener('click', (e) => {
-            e.preventDefault(); // 기본 동작 막기
+   // 페이지 로드 시 버튼 상태 초기화
+   if (dropFragmentButton) {
+    // 로드 시 클래스 초기화
+    dropFragmentButton.classList.remove('grow');
 
-            // 버튼 크기 변경
-            dropFragmentButton.classList.add('grow');
+    // 클릭 이벤트 관리
+    dropFragmentButton.addEventListener('click', (e) => {
+        e.preventDefault(); // 기본 동작 막기
 
-            // 0.5초 후에 링크로 이동
-            setTimeout(() => {
-                window.location.href = dropFragmentButton.href;
-            }, 500); // 커지는 애니메이션 시간 (0.5초)와 일치
-        });
-    } else {
-        console.error('dropfragment_mobile 요소가 존재하지 않습니다.');
-    }
+        // 버튼 크기 변경
+        dropFragmentButton.classList.add('grow');
+
+        // 1초 후에 링크로 이동
+        setTimeout(() => {
+            window.location.href = dropFragmentButton.href;
+        }, 1300); // 1초 (1000ms) 동안 유지된 후에 링크로 이동 (0.3s + 1s)
+
+        // 버튼을 다시 원래 크기로 복구
+        timeoutID = setTimeout(() => {
+            dropFragmentButton.classList.remove('grow');
+        }, 5000); // 5초 후에 원래 크기로 복구
+    });
+
+    // 뒤로 가기 시 타이머 재설정
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            dropFragmentButton.classList.remove('grow');
+            clearTimeout(timeoutID);
+        }
+    };
+} else {
+    console.error('dropfragment_mobile 요소가 존재하지 않습니다.');
+}
 });

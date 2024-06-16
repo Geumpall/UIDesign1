@@ -191,10 +191,12 @@ html, body {
   color: black;
   z-index: 7000;
   transition: transform 0.2s ease-in-out; /* 크기 변경 애니메이션 */
+  transform-origin: right bottom; /* 우측 하단 모서리를 고정점으로 설정 */
 }
 
 .dropfragment_mobile.grow {
-  transform: scale(1.2); /* 커지는 애니메이션 */
+  transform: scale(1.5); /* 커지는 애니메이션 */
+  transition: transform 0.3s ease-in-out; /* 애니메이션 지속시간 변경 */
 }
 
 .fragments {
