@@ -14,6 +14,25 @@ html, body {
     height: 100%;
 }
 
+#loadingMobile{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease-out; /* 트랜지션 추가 */
+}
+
+.logo_loading_mobile{
+    margin: auto;
+    margin-top: 14rem;
+    width: 50%;
+    height: auto;
+}
+
 .leftBox {
     width: calc(100% - 40rem);
     height: fit-content;
@@ -56,7 +75,7 @@ html, body {
 .header_mobile {
     display: flex;
     bottom: 0;
-    padding: 2.6rem 40px 2.9rem;
+    padding: 0;
     width: 100vw;
     position: fixed !important;
     background: linear-gradient(360deg, rgb(255, 255, 255) 20%, rgba(255,255,255,0) 100%);
@@ -71,7 +90,7 @@ html, body {
 }
 
 .menu_mobile {
-    min-width: 36rem;
+    width: 100vw;
     display: flex;
     margin: auto;
     justify-content: center;
@@ -80,10 +99,14 @@ html, body {
 }
 
 .categoryButton {
+    width: calc(100% / 5.8);
     height: fit-content;
     color: white;
-    font-size: 2rem;
-    padding: 1rem 1.1rem;
+    text-align: center;
+    word-break: keep-all;
+    font-size: 2.3rem;
+    padding: 1rem;
+    padding-top: 1.4rem;
     margin: 0 0.3rem;
     background-color: rgb(206, 206, 206);
     cursor: pointer;
@@ -103,7 +126,7 @@ html, body {
 
 #searchInputDesktop {
     display: block;
-    width: 29.2rem;
+    width: 50%;
     height: 3rem;
     padding: 0.5rem;
     font-size: 1.2rem;
@@ -117,6 +140,7 @@ html, body {
     min-width: 127px;
     height: 8.1rem;
     padding: 1.5rem;
+    padding-top: 2rem;
     background-color: white;
     filter: drop-shadow(black 0.1rem 0.1rem 6px);
     text-align: center;
@@ -146,36 +170,43 @@ html, body {
     font-family: "dx-hfl-std", sans-serif;
     font-weight: 500;
     font-style: normal;
+    word-spacing: -0.3rem;
 }
 
 .word::before, .word::after, .word .dot-bottom-left, .word .dot-bottom-right {
     content: '';
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     background-color: var(--color, black);
 }
 
 .word::before { top: -4px; left: -4px; }
 .word::after { top: -4px; right: -4px; }
-.word .dot-bottom-left { bottom: -4px; left: -4px; }
-.word .dot-bottom-right { bottom: -4px; right: -4px; }
+.word .dot-bottom-left { bottom: 13px; left: -4px; }
+.word .dot-bottom-right { bottom: 13px; right: -4px; }
 
 .word:hover::before, .word:hover::after, .word:hover .dot-bottom-left, .word:hover .dot-bottom-right {
-    width: 19px;
-    height: 19px;
+    width: 16px;
+    height: 16px;
+
 }
+
+.word:hover::before{top: -12px; left:-12px; transition: 80ms ease-in;}
+.word:hover::after{top: -12px; right: -12px; transition: 80ms ease-in;}
+.word:hover .dot-bottom-left{bottom: 0px; left: -12px; transition: 80ms ease-in;}
+.word:hover .dot-bottom-right{bottom: 0px; right: -12px; transition: 80ms ease-in;}
 
 .wrapper {
     height: auto;
     min-height: 100%;
-    padding-bottom: 193px;
+    padding-bottom: 170px;
 }
 
 #footer {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
-    height: 193px;
+    height: 170px;
     position: relative;
     transform: translateY(-100%);
     justify-content: space-between;
@@ -201,6 +232,7 @@ html, body {
     font-family: agchoijeongho-screen, sans-serif;
     font-weight: 400;
     font-style: normal;
+    word-break: keep-all;
 }
 
 .authorText {
@@ -214,7 +246,7 @@ html, body {
 .titleText {
     font-size: 2.2rem;
     line-height: 1.8rem;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.4rem;
     font-family: "dx-hfl-std", sans-serif;
     font-weight: 500;
     font-style: normal;
@@ -235,12 +267,25 @@ html, body {
 }
 
 @media only screen and (max-width: 1360px) {
+    
     .fragments { font-size: 4.9rem; }
     .rightBox { width: 36rem; }
-    .word:hover::before, .word:hover::after, .word:hover .dot-bottom-left, .word:hover .dot-bottom-right {
-        width: 16px;
-        height: 16px;
+    .categoryButton{font-size: 2rem;}
+
+    .word::before, .word::after, .word .dot-bottom-left, .word .dot-bottom-right {
+        content: '';
+        width: 10px;
+        height: 10px;
     }
+
+    .word .dot-bottom-left { bottom: 10px; left: -4px; }
+    .word .dot-bottom-right { bottom: 10px; right: -4px; }
+
+    .word:hover::before, .word:hover::after, .word:hover .dot-bottom-left, .word:hover .dot-bottom-right {
+    width: 12px;
+    height: 12px;
+}
+
     .leftBox{width: calc(100% - 36rem);}
     .header{width: calc(100% - 36rem);}
 }
@@ -279,7 +324,8 @@ html, body {
     }
 
     .overlay.active { display: block; }
-    .bookText { font-size: 1.2rem; line-height: 2.3rem; }
+    .bookText { font-size: 1.2rem; line-height: 2.3rem; word-break: keep-all;
+        text-align: left;}
     #footer { height: 121px; }
     .leftBox { width: 100vw; }
     .fragments { font-size: 6rem; }
@@ -320,14 +366,19 @@ html, body {
 
     .overlay.active { display: block; }
     .header { display: none; }
-    .categoryButton { font-size: 2rem; }
+    .categoryButton { font-size: 1.8rem; margin: 0.4rem; margin-top: 0.5rem;}
     .categoryButton:nth-child(5) { margin-right: 0; }
-    #searchInput { min-width: 30rem; }
+    .menu_mobile{bottom: 2rem;}
+    #searchInputMobile{ width: 90%; height: 3rem; font-size: 1rem; border-width: 0px 0px 3px 0px;
+        border-style: solid black;}
     #wholeContainer { overflow: visible; width: auto; }
     .leftBox { width: 100vw; }
-    .bookText { font-size: 1.4rem; line-height: 2.6rem; }
+    .bookText { font-size: 1.4rem; line-height: 2.6rem; word-break: keep-all;
+        text-align: left;}
+    .authorText{font-size: 1.2rem;}
+    .titleText{font-size: 1.4rem;}
+    .publisherText{font-size: 1.1rem;}
     .dropfragment { display: none; }
-    #searchInputDesktop { width: 60px; height: 76px; margin: 1rem; }
     .fragments { font-size: 6rem; width: 100vw; }
     .word { margin-right: 1rem; }
 }
@@ -361,7 +412,7 @@ html, body {
 
     .categoryButton{
         padding: 0.6rem 0.8rem;
-        font-size: 1.84rem;
+        font-size: 1.6rem;
         margin: 0;
     }
 
@@ -379,7 +430,7 @@ html, body {
     }
 
     .word{
-        margin-left: 1rem;
+        margin-left: 0.7rem;
     }
 
     .rightBox {
@@ -404,20 +455,46 @@ html, body {
     }
 
     .logo-holder{
-        display: none;
+        //display: none;
+        width: 4rem;
     }
 
     .bookText{
-        font-size: 1.2rem;
-        line-height: 2.2rem;
+        font-size: 1rem;
+        line-height: 1.9rem;
+        word-break: break-all;
+        text-align: justify;
     }
 
     #searchInputMobile {
-        min-width: 23.7rem;
+        width: 90%;
         height: 3rem;
         padding: 0;
         font-size: 1.2rem;
-        border: 1px solid #ccc;
+        border-width: 0px 0px 3px 0px;
+        border-style: solid black;
         margin-top: 2px;
     }
+
+    #bookInfo{
+        margin: 0;
+    }
+
+    .authorText{font-size: 1.2rem;}
+    .titleText{font-size: 1.4rem; line-height: 1rem;}
+    .publisherText{font-size: 1.1rem; line-height: 1.6rem;}
+
+    .word::before, .word::after, .word .dot-bottom-left, .word .dot-bottom-right {
+        content: '';
+        width: 7px;
+        height: 7px;
+    }
+
+    .word .dot-bottom-left { bottom: 4px; left: -4px; }
+    .word .dot-bottom-right { bottom: 4px; right: -4px; }
+
+    .word:hover::before, .word:hover::after, .word:hover .dot-bottom-left, .word:hover .dot-bottom-right {
+    width: 10px;
+    height: 10px;
+}
 }

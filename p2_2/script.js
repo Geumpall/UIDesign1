@@ -63,6 +63,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+// word 클릭 이벤트 핸들러
+function handleWordClick(event) {
+    // rightBox의 스크롤 위치 초기화
+    setTimeout(() => {
+        rightBox.scrollTop = 0;
+    }, 0); // 애니메이션이 끝난 후 실행
+}
+
+// 모든 word 요소에 클릭 이벤트 추가
+words.forEach(word => {
+    word.addEventListener('click', handleWordClick);
+});
+
+// MutationObserver를 사용하여 rightBox의 클래스 변경 감지
+const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+        if (mutation.attributeName === 'class') {
+            if (rightBox.classList.contains('active')) {
+                // rightBox의 스크롤 위치 초기화
+                rightBox.scrollTop = 0;
+            }
+        }
+    });
+});
+
+// rightBox 요소의 클래스 속성 변화 감지 시작
+observer.observe(rightBox, {
+    attributes: true // 속성 변화를 감지하도록 설정
+});
+
+
     // 초기 셔플 및 전체 단어 표시
     shuffleWords();
     displayWords('전체');
@@ -83,13 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     // HTML 요소를 찾기
-const searchInputDesktop = document.querySelector('.header .menu #searchInputDesktop');
-const searchInputMobile = document.querySelector('.header_mobile .menu_mobile #searchInputMobile');
+    const searchInputDesktop = document.querySelector('.header .menu #searchInputDesktop');
+    const searchInputMobile = document.querySelector('.header_mobile .menu_mobile #searchInputMobile');
 
 // 검색 이벤트 리스너 함수 정의
-function handleSearch(event) {
-    const query = event.target.value.toLowerCase();
-    const fragments = document.querySelectorAll('.fragments .word');
+    function handleSearch(event) {
+        const query = event.target.value.toLowerCase();
+        const fragments = document.querySelectorAll('.fragments .word');
 
     fragments.forEach(fragment => {
         const text = fragment.dataset.text.toLowerCase();
@@ -104,7 +135,7 @@ function handleSearch(event) {
             fragment.style.display = 'none'; // 일치하지 않으면 숨기기
         }
     });
-}
+    }
 
 // 두 검색 필드에 이벤트 리스너 추가
 if (searchInputDesktop) {
@@ -143,4 +174,30 @@ window.addEventListener('resize', adjustEventListeners);
         rightBox.classList.remove('active');
         overlay.classList.remove('active');
     });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const isMobile = window.innerWidth < 1247;
+    const loadingMobile = document.getElementById('loadingMobile');
+    const wholeContainer = document.getElementById('wholeContainer');
+
+    if (loadingMobile && wholeContainer) {
+        if (isMobile) {
+            // 3초 후 로딩 화면 제거 및 메인 콘텐츠 표시
+            setTimeout(() => {
+                loadingMobile.style.opacity = '0'; // 불투명도 감소
+                setTimeout(() => {
+                    loadingMobile.style.display = 'none';
+                    wholeContainer.style.display = 'block';
+                }, 1000); // 1초 후 display 속성 변경
+            }, 1500); // 3초 대기
+        } else {
+            // 모바일이 아닌 경우 바로 메인 콘텐츠 표시
+            loadingMobile.style.display = 'none';
+            wholeContainer.style.display = 'block';
+        }
+    } else {
+        console.error('loadingMobile 또는 wholeContainer 요소가 존재하지 않습니다.');
+    }
 });
