@@ -38,7 +38,11 @@ ul {
   font-style: normal;
   color: rgb(35, 35, 35);
   font-size: 18px;
-  line-height: 2.1rem;
+}
+
+li {
+  line-height: 1.7rem;
+  margin-bottom: 1rem;
 }
 
 H2 {
@@ -53,36 +57,44 @@ H2 {
   font-size: 21px;
 }
 
-.button {
+.buttons {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  display: block;
   text-align: center;
   text-decoration: none;
+  width: 100vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  background-color: rgb(255, 249, 143);
+  padding: 1rem;
+  width: 30rem;
+  margin: auto;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  transition: 700ms;
+}
+
+.button:hover {
+  background-color: aqua;
+  transform: scale(1.1);
+  transition: 700ms;
 }
 
 img {
   margin: auto;
+  top: 2rem;
   display: block;
   align-content: center;
   height: 30vh;
-}
-
-body.dark {
-  background: #333;
-}
-
-h1.dark {
-  color: white;
-}
-
-H2.dark {
-  color: white;
-}
-
-ul.dark {
-  color: white;
-}
-
-p.dark {
-  color: white;
 }
 
 @media only screen and (max-width: 600px) {
@@ -94,7 +106,14 @@ p.dark {
     line-height: 2.8rem;
   }
   img {
-    height: 20vh;
-    margin-top: 3rem;
+    height: 24vh;
+    margin-top: 1rem;
+  }
+  .button {
+    padding: 1rem;
+    width: 90vw;
+  }
+  .button:hover {
+    transform: scale(1);
   }
 }/*# sourceMappingURL=style.css.map */
